@@ -25,3 +25,4 @@ def ee(n):  # 2진수로 바꿔주는 함수
 
 
 print(ee(int(z)))
+print("HelloWorld")
