@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+
 '''
 df = pd.DataFrame(
         np.arange(0, 25).reshape(5, 5),
@@ -21,7 +22,7 @@ print(titanic['age'].mean())
 print(titanic.loc[titanic.sex == "female"]["age"].mean())
 print(titanic.loc[(titanic['pclass'] == 1) & (titanic['sex'] == "female")]["age"].mean())
 '''
-
+'''
 import seaborn as sns
 titanic = sns.load_dataset("titanic")
 titanic.head()
@@ -52,7 +53,7 @@ titanic_age["비율"] = titanic_age.apply(lambda i : i.연령대 / titanic_age.�
 # 나이 그룹의 승객 비율을 구하는 식
 
 titanic['category3'] = titanic.apply(lambda f: "미성년자" if f.age < 20 else f.a + f.sex, axis=1)
-print(titanic)
+print(titanic)'''
 '''
 
 
@@ -80,3 +81,38 @@ df4 = pd.DataFrame(ages, columns=["ages"])
 df4["age_cat"] = pd.cut(df4.ages, bins, labels=labels)
 print(df4.age_cat.astype(str) + df4.ages.astype(str))
 '''
+
+# np.random.seed(0)
+# df1 = pd.DataFrame(np.vstack([list('ABCDE'),
+#                               np.round(np.random.rand(3, 5), 2)]).T,
+#                    columns=["C1", "C2", "C3", "C4"])
+# df2 = df1.set_index("C1")
+# df2 = df2.set_index("C2")
+# df2 = df2.reset_index()
+# print(df2)
+
+# data = [80, 90, 70, 30, 40], [90, 70, 60, 40, 40], [90, 60, 80, 70, 40], ['춘향', '범수', '몽룡', '민주', '대만']
+# data2 = np.transpose(data)
+#
+# col = ['국어', '수학', '영어', '이름']
+# df_score1 = pd.DataFrame(data2, columns=col).set_index('이름')
+# # df_score1 = df_score1.reset_index()
+# # df_score1 = df_score1.set_index("이름")
+# print(df_score1)
+
+np.random.seed(0)
+grade1 = np.random.randint(0,101,(5,3))
+class1 = np.random.randint(1, 3, (5,1))
+number1 = np.random.randint(1,31, (5,1))
+df_score3 = pd.DataFrame(np.hstack([grade1,class1,number1]), columns=["국어","영어","수학","반","번호"])
+print(df_score3)
+# df_score4 = df_score3.set_index(["반", "번호"]).sort_values(by=["반", "번호"])
+# df_score4["평균점수"] = df_score4.mean(axis=1)
+# print(df_score4)
+#행 인덱스로 “번호”를, 1차 열 인덱스로 “국어”, “영어”, “수학”을, 2차 열 인덱스로 “반”을 가지는 데이터프레임 df_score5을 만든다.
+df_score5 = df_score3.set_index(['반','번호']).unstack('반')
+df_score5.columns.names = ['과목', '반']
+print(df_score5)
+#데이터 프레임 df_score5에 각 반별 각 과목의 평균을 나타내는 행을 아래에 추가한다.
+df_score5.loc[("평균점수"), :] = df_score5.mean()
+print(df_score5)
