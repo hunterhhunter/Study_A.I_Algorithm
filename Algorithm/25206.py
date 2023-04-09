@@ -20,6 +20,7 @@ def byun(hak):
     else:
         pass
 
+
 subject_o = []
 biyul_o = []
 score_o = []
@@ -35,7 +36,7 @@ for i in range(20):
         score_o.append(byun(score))
         biyul_o.append(float(biyul))
 
-for x in range(20-count):
+for x in range(20 - count):
     chong += biyul_o[x] * score_o[x]
 
 print('%.6f' % (chong / sum(biyul_o)))

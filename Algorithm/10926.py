@@ -1,0 +1,2 @@
+inpu = input()
+print(inpu + '??!')
