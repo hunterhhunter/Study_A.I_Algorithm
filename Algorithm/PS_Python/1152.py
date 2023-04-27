@@ -2,6 +2,6 @@ print(len(input().split()))
 
 ip = input()
 
-lis = list(ip.split())
+lis = ip.split()
 
 print(len(lis))
