@@ -4,7 +4,8 @@ inp = int(input())
 lis = []
 for _ in range(inp):
     lis.append(int(input()))
-mid = sum(lis) // len(lis)
-lis2 = [i for i in lis if i >= mid]
-lis2.sort()
-print(len(lis2) * lis2[0])
+lis.sort(reverse=True)
+lis2 = []
+for i in range(inp):
+    lis2.append(lis[i] * (i+1))
+print(max(lis2))
