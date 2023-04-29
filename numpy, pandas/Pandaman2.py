@@ -61,44 +61,44 @@ print(sum(a.value_counts()))
  '''
 
 #print(titanic)
-
+'''
 '''
 df3 = pd.DataFrame({
     'A': [1, 3, 4, 3, 4],
     'B': [2, 3, 1, 2, 3],
     'C': [1, 5, 2, 4, 4]
 })
-print(df3.apply(lambda x: x.max() - x.min())) #각 열의 최댓값과 최솟값을 구하고 싶을 때
-'''
-'''
-ages = [0, 2, 10, 21, 23, 37, 31, 61, 20, 41, 32, 101]
-bins = [1, 20, 30, 50, 70, 100]
-labels = ["미성년자", "청년", "중년", "장년", "노년"]
-cats = pd.cut(ages, bins, labels=labels)
-print(cats)
-
-df4 = pd.DataFrame(ages, columns=["ages"])
-df4["age_cat"] = pd.cut(df4.ages, bins, labels=labels)
-print(df4.age_cat.astype(str) + df4.ages.astype(str))
-'''
-
-# np.random.seed(0)
-# df1 = pd.DataFrame(np.vstack([list('ABCDE'),
-#                               np.round(np.random.rand(3, 5), 2)]).T,
-#                    columns=["C1", "C2", "C3", "C4"])
-# df2 = df1.set_index("C1")
-# df2 = df2.set_index("C2")
-# df2 = df2.reset_index()
-# print(df2)
-
-# data = [80, 90, 70, 30, 40], [90, 70, 60, 40, 40], [90, 60, 80, 70, 40], ['춘향', '범수', '몽룡', '민주', '대만']
-# data2 = np.transpose(data)
+# print(df3.apply(lambda x: x.max() - x.min())) #각 열의 최댓값과 최솟값을 구하고 싶을 때
+# '''
+# '''
+# ages = [0, 2, 10, 21, 23, 37, 31, 61, 20, 41, 32, 101]
+# bins = [1, 20, 30, 50, 70, 100]
+# labels = ["미성년자", "청년", "중년", "장년", "노년"]
+# cats = pd.cut(ages, bins, labels=labels)
+# print(cats)
 #
-# col = ['국어', '수학', '영어', '이름']
-# df_score1 = pd.DataFrame(data2, columns=col).set_index('이름')
-# # df_score1 = df_score1.reset_index()
-# # df_score1 = df_score1.set_index("이름")
-# print(df_score1)
+# df4 = pd.DataFrame(ages, columns=["ages"])
+# df4["age_cat"] = pd.cut(df4.ages, bins, labels=labels)
+# print(df4.age_cat.astype(str) + df4.ages.astype(str))
+
+'''
+np.random.seed(0)
+df1 = pd.DataFrame(np.vstack([list('ABCDE'),
+                              np.round(np.random.rand(3, 5), 2)]).T,
+                   columns=["C1", "C2", "C3", "C4"])
+df2 = df1.set_index("C1")
+df2 = df2.set_index("C2")
+df2 = df2.reset_index()
+print(df2)
+
+data = [80, 90, 70, 30, 40], [90, 70, 60, 40, 40], [90, 60, 80, 70, 40], ['춘향', '범수', '몽룡', '민주', '대만']
+data2 = np.transpose(data)
+
+col = ['국어', '수학', '영어', '이름']
+df_score1 = pd.DataFrame(data2, columns=col).set_index('이름')
+# df_score1 = df_score1.reset_index()
+# df_score1 = df_score1.set_index("이름")
+print(df_score1)'''
 
 np.random.seed(0)
 grade1 = np.random.randint(0,101,(5,3))
