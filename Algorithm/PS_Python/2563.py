@@ -1,5 +1,5 @@
 inp = int(input())
-lis = [[0] * 100 for _ in range(100)]
+lis = [[0] * 100 for _ in range(100)] #=> 문제 핵심
 
 for _ in range(inp):
     x, y = map(int, input().split())
