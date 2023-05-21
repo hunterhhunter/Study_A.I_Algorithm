@@ -26,47 +26,47 @@ train_input = train_input.reshape(-1, 1)
 test_input = test_input.reshape(-1, 1)
 
 from sklearn.neighbors import KNeighborsRegressor
-#
-# knr = KNeighborsRegressor(n_neighbors=3)
-#
-# #훈련진행
-# knr.fit(train_input, train_target)
-#
-# #길이가 50인 농어 무게 예측
-# print(knr.predict([[50]]))
-#
-# import matplotlib.pyplot as plt
-#
-# #길이 50인 농어 이웃 구하기
-# distances, indexes = knr.kneighbors([[50]])
-# plt.scatter(train_input, train_target)
-# #훈련세트 중 이웃 샘플만 다시 그리기
-# plt.scatter(train_input[indexes], train_target[indexes], marker='D')
-#
-# #길이 50 농어 데이터
-# plt.scatter(50, 1033, marker='^')
-# plt.xlabel("length")
-# plt.ylabel('weight')
-# plt.show()
-#
-# print(np.mean(train_target[indexes]))
+
+knr = KNeighborsRegressor(n_neighbors=3)
+
+#훈련진행
+knr.fit(train_input, train_target)
+
+#길이가 50인 농어 무게 예측
+print(knr.predict([[50]]))
+
+import matplotlib.pyplot as plt
+
+#길이 50인 농어 이웃 구하기
+distances, indexes = knr.kneighbors([[50]])
+plt.scatter(train_input, train_target)
+#훈련세트 중 이웃 샘플만 다시 그리기
+plt.scatter(train_input[indexes], train_target[indexes], marker='D')
+
+#길이 50 농어 데이터
+plt.scatter(50, 1033, marker='^')
+plt.xlabel("length")
+plt.ylabel('weight')
+plt.show()
+
+print(np.mean(train_target[indexes]))
 
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(train_input, train_target)
 
-# print(lr.predict([[50]]))
-#
-# print(lr.coef_, lr.intercept_)
-#
-# plt.scatter(train_input, train_target)
-#
-# plt.plot([15, 50], [15*lr.coef_+lr.intercept_, 50*lr.coef_+lr.intercept_])
-#
-# plt.scatter(50, 1241.8, marker='^')
-# plt.xlabel('length')
-# plt.ylabel('weight')
-# plt.show()
+print(lr.predict([[50]]))
+
+print(lr.coef_, lr.intercept_)
+
+plt.scatter(train_input, train_target)
+
+plt.plot([15, 50], [15*lr.coef_+lr.intercept_, 50*lr.coef_+lr.intercept_])
+
+plt.scatter(50, 1241.8, marker='^')
+plt.xlabel('length')
+plt.ylabel('weight')
+plt.show()
 
 print(lr.score(train_input, train_target))
 print(lr.score(test_input, test_target))
