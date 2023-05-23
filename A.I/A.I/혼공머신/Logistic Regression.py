@@ -44,11 +44,7 @@ plt.xlabel('z')
 plt.ylabel('phi')
 plt.show()
 
-bream_smelt_indexes = (train_target == 'Brea'
-                                       ''
-                                       ''
-                                       ''
-                                       'm') | (train_target == 'Smelt')
+bream_smelt_indexes = (train_target == 'Bream') | (train_target == 'Smelt')
 train_bream_smelt = train_scaled[bream_smelt_indexes]
 target_bream_smelt = train_target[bream_smelt_indexes]
 
@@ -64,5 +60,26 @@ print(lr.coef_, lr.intercept_)
 dicisions = lr.decision_function(train_bream_smelt[:5])
 print(dicisions)
 
-from scipy.special import  expit #시그모이드 함수 사용을 위해
+from scipy.special import expit #시그모이드 함수 사용을 위해
 print(expit(dicisions))
+
+lr = LogisticRegression(C=20, max_iter=1000)
+lr.fit(train_scaled, train_target)
+print(lr.score(train_scaled, train_target))
+print(lr.score(test_scaled, test_target))
+
+print(lr.predict(train_scaled[:5]))
+
+proba = lr.predict_proba(test_scaled[:5])
+print(np.round(proba, decimals=3))
+
+print(lr.classes_)
+
+print(lr.coef_.shape, lr.intercept_.shape)
+
+decisions = lr.decision_function(test_scaled[:5])
+print(np.round(decisions, decimals=2))
+
+from  scipy.special import softmax
+proba = softmax(decisions, axis=1)
+print(np.round(proba, decimals=3))
