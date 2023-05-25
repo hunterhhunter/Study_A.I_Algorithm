@@ -1,33 +1,5 @@
 from collections import deque
 
-
-
-# def dfs(x, y, maxx, maxy):
-#     global cnt
-#     if x < 0 or x >= maxx or y < 0 or y >= maxy:
-#         return False
-#     if lis[x][y] == 1:
-#         lis[x][y] = 0
-#         for i in range(4):
-#             nx = x + dx[i]
-#             ny = y + dy[i]
-#             dfs(nx, ny, maxx, maxy)
-#         return True
-#     return False
-#
-# def solution(x, y):
-#     global cnt
-#     if x <= -1 or y <= -1 or x >= a or y >= b:
-#         return False
-#     if lis[x][y] == 1:
-#         cnt += 1
-#         lis[x][y] = 0
-#         for i in range(4):
-#             nx = x + dx[i]
-#             ny = y + dy[i]
-#             solution(nx, ny)
-#         return True
-#     return False
 import sys
 sys.setrecursionlimit(10**6)
 dx = [1, -1, 0, 0]
