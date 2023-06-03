@@ -14,16 +14,25 @@
 #                 break
 # print(result)
 import sys
+from collections import deque
 input = sys.stdin.readline
 ea, bags = map(int, input().split())
 value = dict()
 result = 0
+gabang = []
+gabang2 = []
 for _ in range(ea):
     a, b = map(int, input().split())
     value[a] = b
 value = dict(sorted(value.items(), key=lambda x: x[1], reverse=True))
 for _ in range(bags):
     weight = int(input())
+    gabang.append(weight)
+
+gabang.sort(reverse=True)
+gabang = deque(gabang)
+while gabang:
+
     for i in value.keys():
         if i <= 0:
             pass

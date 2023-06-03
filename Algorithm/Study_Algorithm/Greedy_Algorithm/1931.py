@@ -6,7 +6,7 @@ count = 1
 for _ in range(inp):
     lis.append(tuple(map(int, input().split())))
 
-lis.sort(key= lambda x : (x[1], x[0]))
+lis.sort(key=lambda x: (x[1], x[0]))
 x = lis[0][1]
 
 for i in lis[1:]:

@@ -11,6 +11,9 @@ su = lis[0]
 for i in range(1, len(lis)):
     su -= lis[i]
 print(su)
+
+
+
 # for i in range(len(sik)):
 #     lis.append(list(sik[i].split(sep='+')))
 # mi = int(lis[0][0])
