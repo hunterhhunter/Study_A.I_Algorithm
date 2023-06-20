@@ -1,4 +1,7 @@
-in1 = int(input())
+num = int(input()) #입력받기 -> 파이썬 기본 입력값은 '문자열' -> 나는 숫자(정수형)을 쓰고싶은데??
+                    # 그럼 입력값을 int(정수)로 형변환을 해주면 되잖아! -> 아하!
+                    # 그럼 a같은 문자도 수로 바꿀 수 있나요? -> 더 알아보기(클릭)
 
-for i in range(1, 10):
-    print(f"{in1} * {i} = {in1*i}")
+for i in range(1, 10): # 반복문 -> range(1, 10)? range(10)?
+    print(f"{num} * {i} = {num*i}") #f스트링 출력 -> ??
+    #익숙한 형태로 바꿔보자 -> print("{} * {} = {}".format(num, i, num*i))
