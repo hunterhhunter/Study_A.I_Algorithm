@@ -1,5 +1,3 @@
-import sys
-input = sys.stdin.readline
 inp = int(input())
 lis = dict()
 for _ in range(inp):
